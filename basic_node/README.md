@@ -283,6 +283,39 @@ De maniere generale le code fonctionne mais il est long et illisible pour la plu
 
 ### Ameliorons le programme
 
+Le principe est assez complexe ne pas hesiter a le lire avant de continue. Nous allons mettre une fonction dans une constante et l'appeler
+
+```javascript
+// module qui permet a l'utilisateur de saisir du texte
+const readline = require('readline')
+
+// creer une interface pour lire les lignes
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+// fonction qui permet de demarrer le programme
+const demarrerProgramme = () => {
+    // creation d'une constance qui contiendra la fonction
+    const lirePrenom = prenom => {
+        console.log('Ton prenom est ' + prenom)
+        rl.close()
+    }
+
+    // appel de la function dans leau niveau de la demande
+    rl.question('quel est ton prenom? ', lirePrenom)
+}
+
+demarrerProgramme()
 ```
-Le principe est assez complexe ne pas hesiter a le lire avant de continue
+
+* Reponse
+
+```javascript
+titodevops@attito:~/Bureau/Boulot/test_python/basic_node$ node 3.js 
+quel est ton prenom? David
+Ton prenom est David
+titodevops@attito:~/Bureau/Boulot/test_python/basic_node$ 
 ```
+

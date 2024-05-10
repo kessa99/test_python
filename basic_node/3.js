@@ -9,10 +9,14 @@ const rl = readline.createInterface({
 
 // fonction qui permet de demarrer le programme
 const demarrerProgramme = () => {
-    rl.question('quel est ton prenom? ', prenom => {
-        console.log('Ton prenon est: ' + prenom)
+    // creation d'une constance qui contiendra la fonction
+    const lirePrenom = prenom => {
+        console.log('Ton prenom est ' + prenom)
         rl.close()
-    })
+    }
+
+    // appel de la function dans leau niveau de la demande
+    rl.question('quel est ton prenom? ', lirePrenom)
 }
 
 demarrerProgramme()
